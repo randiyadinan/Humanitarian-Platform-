@@ -1,6 +1,17 @@
 @HumanitarianAPI_HostAddress = http://localhost:5196
 
-GET {{HumanitarianAPI_HostAddress}}/weatherforecast/
-Accept: application/json
+### ආධාර ඉල්ලීමක් පද්ධතියට ඇතුළත් කිරීම (POST)
+POST {{HumanitarianAPI_HostAddress}}/api/assistancerequest
+Content-Type: application/json
 
-###
+{
+  "category": "Food",
+  "urgency": "High",
+  "description": "ගංවතුර නිසා පවුල් 5 කට කෑම අවශ්‍යයි",
+  "location": "Agalawatta",
+  "status": "Pending"
+}
+
+### පද්ධතියේ තියෙන සියලුම ඉල්ලීම් බැලීම (GET)
+GET {{HumanitarianAPI_HostAddress}}/api/assistancerequest
+Accept: application/json

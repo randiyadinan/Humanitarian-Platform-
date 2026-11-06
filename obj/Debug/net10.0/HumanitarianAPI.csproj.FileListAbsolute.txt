@@ -32,3 +32,6 @@
 /Users/dinan/Desktop/HumanitarianAPI/obj/Debug/net10.0/HumanitarianAPI.pdb
 /Users/dinan/Desktop/HumanitarianAPI/obj/Debug/net10.0/HumanitarianAPI.genruntimeconfig.cache
 /Users/dinan/Desktop/HumanitarianAPI/obj/Debug/net10.0/ref/HumanitarianAPI.dll
+/Users/dinan/Desktop/HumanitarianAPI/bin/Debug/net10.0/Microsoft.EntityFrameworkCore.dll
+/Users/dinan/Desktop/HumanitarianAPI/bin/Debug/net10.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+/Users/dinan/Desktop/HumanitarianAPI/bin/Debug/net10.0/Microsoft.EntityFrameworkCore.InMemory.dll
