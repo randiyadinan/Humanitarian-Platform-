@@ -26,10 +26,20 @@ namespace HumanitarianAPI.Controllers
             return await _context.AssistanceRequests.ToListAsync();
         }
 
-        // අලුත් ඉල්ලීමක් Database එකට ඇතුළත් කරන Endpoint එක (POST)
+        // අලුත් ඉල්ලීමක් Database එකට ඇතුළත් කරන Endpoint එක (POST) - AI Logic සමඟින්
         [HttpPost]
         public async Task<ActionResult<AssistanceRequest>> CreateRequest([FromBody] AssistanceRequest newRequest)
         {
+            // AI Decision-Support Logic: ස්වයංක්‍රීයව හදිසි අවස්ථා හඳුනා ගැනීම
+            if (!string.IsNullOrEmpty(newRequest.Description))
+            {
+                string descLower = newRequest.Description.ToLower();
+                if (descLower.Contains("urgent") || descLower.Contains("severe") || descLower.Contains("emergency"))
+                {
+                    newRequest.Urgency = "High";
+                }
+            }
+
             _context.AssistanceRequests.Add(newRequest);
             await _context.SaveChangesAsync(); // දත්ත ස්ථිරවම Database එකේ Save කිරීම
             
