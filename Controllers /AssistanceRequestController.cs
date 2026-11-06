@@ -1,6 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using HumanitarianAPI.Models;
+using HumanitarianAPI.Data;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace HumanitarianAPI.Controllers
 {
@@ -8,21 +11,28 @@ namespace HumanitarianAPI.Controllers
     [ApiController]
     public class AssistanceRequestController : ControllerBase
     {
-        private static List<AssistanceRequest> requests = new List<AssistanceRequest>();
+        private readonly ApplicationDbContext _context;
 
-     
-        [HttpGet]
-        public ActionResult<IEnumerable<AssistanceRequest>> GetRequests()
+        // Database එක Controller එකට සම්බන්ධ කිරීම
+        public AssistanceRequestController(ApplicationDbContext context)
         {
-            return Ok(requests);
+            _context = context;
         }
 
-     
-        [HttpPost]
-        public ActionResult<AssistanceRequest> CreateRequest([FromBody] AssistanceRequest newRequest)
+        // Database එකේ තියෙන සියලුම ඉල්ලීම් ලබාගන්නා Endpoint එක
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<AssistanceRequest>>> GetRequests()
         {
-            newRequest.Id = requests.Count + 1;
-            requests.Add(newRequest);
+            return await _context.AssistanceRequests.ToListAsync();
+        }
+
+        // අලුත් ඉල්ලීමක් Database එකට ඇතුළත් කරන Endpoint එක
+        [HttpPost]
+        public async Task<ActionResult<AssistanceRequest>> CreateRequest([FromBody] AssistanceRequest newRequest)
+        {
+            _context.AssistanceRequests.Add(newRequest);
+            await _context.SaveChangesAsync(); // දත්ත Database එකේ Save කිරීම
+            
             return Ok(newRequest);
         }
     }
