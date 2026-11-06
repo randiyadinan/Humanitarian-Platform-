@@ -29,3 +29,17 @@ Content-Type: application/json
 ### පද්ධතියේ තියෙන සියලුම කඳවුරු බැලීම (GET)
 GET {{HumanitarianAPI_HostAddress}}/api/shelter
 Accept: application/json
+### අලුත් ස්වේච්ඡා සේවකයෙක් පද්ධතියට ඇතුළත් කිරීම (POST)
+POST {{HumanitarianAPI_HostAddress}}/api/volunteer
+Content-Type: application/json
+
+{
+  "name": "කමල් පෙරේරා",
+  "skills": "First Aid, Swimming",
+  "contactNumber": "0771234567",
+  "status": "Available"
+}
+
+### පද්ධතියේ තියෙන සියලුම ස්වේච්ඡා සේවකයන් බැලීම (GET)
+GET {{HumanitarianAPI_HostAddress}}/api/volunteer
+Accept: application/json
