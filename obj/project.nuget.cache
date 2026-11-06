@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "AsadQ1Rz2lQ=",
+  "success": true,
+  "projectFilePath": "/Users/dinan/Desktop/HumanitarianAPI/HumanitarianAPI.csproj",
+  "expectedPackageFiles": [
+    "/Users/dinan/.nuget/packages/microsoft.aspnetcore.openapi/10.0.12/microsoft.aspnetcore.openapi.10.0.12.nupkg.sha512",
+    "/Users/dinan/.nuget/packages/microsoft.openapi/2.12.0/microsoft.openapi.2.12.0.nupkg.sha512"
+  ],
+  "logs": []
+}
