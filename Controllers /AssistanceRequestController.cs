@@ -19,19 +19,19 @@ namespace HumanitarianAPI.Controllers
             _context = context;
         }
 
-        // Database එකේ තියෙන සියලුම ඉල්ලීම් ලබාගන්නා Endpoint එක
+        // Database එකේ තියෙන සියලුම ඉල්ලීම් ලබාගන්නා Endpoint එක (GET)
         [HttpGet]
         public async Task<ActionResult<IEnumerable<AssistanceRequest>>> GetRequests()
         {
             return await _context.AssistanceRequests.ToListAsync();
         }
 
-        // අලුත් ඉල්ලීමක් Database එකට ඇතුළත් කරන Endpoint එක
+        // අලුත් ඉල්ලීමක් Database එකට ඇතුළත් කරන Endpoint එක (POST)
         [HttpPost]
         public async Task<ActionResult<AssistanceRequest>> CreateRequest([FromBody] AssistanceRequest newRequest)
         {
             _context.AssistanceRequests.Add(newRequest);
-            await _context.SaveChangesAsync(); // දත්ත Database එකේ Save කිරීම
+            await _context.SaveChangesAsync(); // දත්ත ස්ථිරවම Database එකේ Save කිරීම
             
             return Ok(newRequest);
         }
