@@ -43,3 +43,17 @@ Content-Type: application/json
 ### පද්ධතියේ තියෙන සියලුම ස්වේච්ඡා සේවකයන් බැලීම (GET)
 GET {{HumanitarianAPI_HostAddress}}/api/volunteer
 Accept: application/json
+### අලුත් සම්පතක් ඇතුළත් කිරීම (POST)
+POST {{HumanitarianAPI_HostAddress}}/api/resource
+Content-Type: application/json
+
+{
+  "name": "Drinking Water Bottles (1L)",
+  "quantity": 1000,
+  "location": "Main Warehouse",
+  "status": "Available"
+}
+
+### සියලුම සම්පත් බැලීම (GET)
+GET {{HumanitarianAPI_HostAddress}}/api/resource
+Accept: application/json

@@ -9,6 +9,7 @@ namespace HumanitarianAPI.Data
 
         public DbSet<AssistanceRequest> AssistanceRequests { get; set; }
         public DbSet<Shelter> Shelters { get; set; }
-        public DbSet<Volunteer> Volunteers { get; set; } // ස්වේච්ඡා සේවකයන් සඳහා අලුත් Table එක
+        public DbSet<Volunteer> Volunteers { get; set; }
+        public DbSet<Resource> Resources { get; set; } // සම්පත් සඳහා අලුත් Table එක
     }
 }
