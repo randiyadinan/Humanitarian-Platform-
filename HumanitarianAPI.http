@@ -15,3 +15,17 @@ Content-Type: application/json
 ### පද්ධතියේ තියෙන සියලුම ඉල්ලීම් බැලීම (GET)
 GET {{HumanitarianAPI_HostAddress}}/api/assistancerequest
 Accept: application/json
+### අලුත් කඳවුරක් පද්ධතියට ඇතුළත් කිරීම (POST)
+POST {{HumanitarianAPI_HostAddress}}/api/shelter
+Content-Type: application/json
+
+{
+  "name": "අගලවත්ත මහා විද්‍යාලය",
+  "location": "Agalawatta",
+  "capacity": 500,
+  "currentOccupancy": 150
+}
+
+### පද්ධතියේ තියෙන සියලුම කඳවුරු බැලීම (GET)
+GET {{HumanitarianAPI_HostAddress}}/api/shelter
+Accept: application/json
