@@ -1,10 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "AsadQ1Rz2lQ=",
+  "dgSpecHash": "+Yo0edqgSDA=",
   "success": true,
   "projectFilePath": "/Users/dinan/Desktop/HumanitarianAPI/HumanitarianAPI.csproj",
   "expectedPackageFiles": [
     "/Users/dinan/.nuget/packages/microsoft.aspnetcore.openapi/10.0.12/microsoft.aspnetcore.openapi.10.0.12.nupkg.sha512",
+    "/Users/dinan/.nuget/packages/microsoft.entityframeworkcore/10.0.14/microsoft.entityframeworkcore.10.0.14.nupkg.sha512",
+    "/Users/dinan/.nuget/packages/microsoft.entityframeworkcore.abstractions/10.0.14/microsoft.entityframeworkcore.abstractions.10.0.14.nupkg.sha512",
+    "/Users/dinan/.nuget/packages/microsoft.entityframeworkcore.analyzers/10.0.14/microsoft.entityframeworkcore.analyzers.10.0.14.nupkg.sha512",
+    "/Users/dinan/.nuget/packages/microsoft.entityframeworkcore.inmemory/10.0.14/microsoft.entityframeworkcore.inmemory.10.0.14.nupkg.sha512",
     "/Users/dinan/.nuget/packages/microsoft.openapi/2.12.0/microsoft.openapi.2.12.0.nupkg.sha512"
   ],
   "logs": []
