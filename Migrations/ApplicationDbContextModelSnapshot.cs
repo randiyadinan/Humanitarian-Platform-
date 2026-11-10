@@ -47,6 +47,36 @@ namespace HumanitarianAPI.Migrations
                     b.ToTable("AssistanceRequests");
                 });
 
+            modelBuilder.Entity("HumanitarianAPI.Models.Donation", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Date")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("DonationType")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("DonorName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Donations");
+                });
+
             modelBuilder.Entity("HumanitarianAPI.Models.Resource", b =>
                 {
                     b.Property<int>("Id")
