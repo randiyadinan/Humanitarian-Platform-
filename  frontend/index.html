@@ -47,8 +47,50 @@
     </div>
 
     <div class="form-group">
-        <label for="location">Location:</label>
-        <input type="text" id="location" placeholder="e.g. Agalawatta">
+        <label for="district">District:</label>
+        <select id="district">
+            <option value="">-- Select District (25 Districts) --</option>
+            <option value="Ampara">Ampara</option>
+            <option value="Anuradhapura">Anuradhapura</option>
+            <option value="Badulla">Badulla</option>
+            <option value="Batticaloa">Batticaloa</option>
+            <option value="Colombo">Colombo</option>
+            <option value="Galle">Galle</option>
+            <option value="Gampaha">Gampaha</option>
+            <option value="Hambantota">Hambantota</option>
+            <option value="Jaffna">Jaffna</option>
+            <option value="Kalutara">Kalutara</option>
+            <option value="Kandy">Kandy</option>
+            <option value="Kegalle">Kegalle</option>
+            <option value="Kilinochchi">Kilinochchi</option>
+            <option value="Kurunegala">Kurunegala</option>
+            <option value="Mannar">Mannar</option>
+            <option value="Matale">Matale</option>
+            <option value="Matara">Matara</option>
+            <option value="Monaragala">Monaragala</option>
+            <option value="Mullaitivu">Mullaitivu</option>
+            <option value="Nuwara Eliya">Nuwara Eliya</option>
+            <option value="Polonnaruwa">Polonnaruwa</option>
+            <option value="Puttalam">Puttalam</option>
+            <option value="Ratnapura">Ratnapura</option>
+            <option value="Trincomalee">Trincomalee</option>
+            <option value="Vavuniya">Vavuniya</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="nearestCity">Nearest City / Town:</label>
+        <input type="text" id="nearestCity" placeholder="e.g. Matugama">
+    </div>
+
+    <div class="form-group">
+        <label for="address">Specific Address:</label>
+        <input type="text" id="address" placeholder="e.g. No 45, Temple Road">
+    </div>
+
+    <div class="form-group">
+        <label for="contactNumber">Contact Number:</label>
+        <input type="text" id="contactNumber" placeholder="e.g. 0712345678">
     </div>
 
     <button onclick="submitRequest()">Submit Assistance Request</button>
@@ -58,12 +100,25 @@
 
 <script>
     async function submitRequest() {
+        const district = document.getElementById('district').value;
+        const nearestCity = document.getElementById('nearestCity').value;
+        const address = document.getElementById('address').value;
+        const contactNumber = document.getElementById('contactNumber').value;
+        const description = document.getElementById('description').value;
+
+        if (!district || !nearestCity || !address || !contactNumber) {
+            alert('⚠️ Please fill all required fields (District, City, Address, and Contact Number).');
+            return;
+        }
+
+        const formattedLocation = `${district} District, ${nearestCity}, Address: ${address} (Contact: ${contactNumber})`;
+
         const data = {
             id: 0,
             category: document.getElementById('category').value,
             urgency: document.getElementById('urgency').value,
-            description: document.getElementById('description').value,
-            location: document.getElementById('location').value,
+            description: description,
+            location: formattedLocation,
             status: "Pending"
         };
 
@@ -78,15 +133,31 @@
 
             if (response.ok) {
                 const result = await response.json();
+                
+                // 1. Popup Notification එකක් මඟින් සාර්ථක බව පෙන්වීම
+                alert(`✅ Success! Your emergency assistance request has been submitted successfully.\n\nRequest ID: ${result.id}\nAI Assigned Urgency: ${result.urgency}`);
+
+                // 2. UI එකේ Green Notification Banner එක පෙන්වීම
                 const msgBox = document.getElementById('responseMessage');
                 msgBox.style.display = 'block';
-                msgBox.innerHTML = `<strong>Success!</strong> Request submitted. AI Assigned Urgency: <b>${result.urgency}</b> (ID: ${result.id})`;
+                msgBox.style.background = '#dff0d8';
+                msgBox.style.color = '#3c763d';
+                msgBox.style.border = '1px solid #d6e9c6';
+                msgBox.innerHTML = `<strong>🎉 Success Notification:</strong> Request successfully submitted to the backend system! <br><b>Assigned Urgency (AI):</b> ${result.urgency} | <b>Reference ID:</b> #${result.id}`;
+
+                // 3. අවශ්‍ය නම් Form එක Clear කරගැනීම
+                document.getElementById('description').value = '';
+                document.getElementById('nearestCity').value = '';
+                document.getElementById('address').value = '';
+                document.getElementById('contactNumber').value = '';
+                document.getElementById('district').selectedIndex = 0;
+
             } else {
-                alert('Failed to submit request.');
+                alert('❌ Failed to submit request to backend. Please check if the API is running.');
             }
         } catch (error) {
             console.error('Error:', error);
-            alert('An error occurred connecting to the backend API.');
+            alert('❌ An error occurred connecting to the backend API. Make sure dotnet run is active.');
         }
     }
 </script>

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HumanitarianAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fc81f1c0234b7101d45e6be3c9cc8e9451038a0c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+11fe51bfa7221514db7577d5fcffb9e3611dcbc6")]
 [assembly: System.Reflection.AssemblyProductAttribute("HumanitarianAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HumanitarianAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
